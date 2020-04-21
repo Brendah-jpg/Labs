@@ -1,0 +1,2 @@
+What happens in line 18 -21 in lab1.php is: after the insert into statement in user.php is executed and the value in $res is inserted in the database, 
+when the if statement in line 18 (lab1.php) is carried out and the result is true, it will send a message that the save operation was successful.

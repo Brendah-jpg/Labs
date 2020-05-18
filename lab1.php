@@ -22,7 +22,7 @@ if(isset ($_POST['btn-save'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lab exercise 1</title>
+	<title>Home Page</title>
 </head>
 <body>
 	<form method = "post">

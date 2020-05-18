@@ -8,9 +8,9 @@
 		public $conn;
 
 		function __construct(){
-			$this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS) or die ("Error: " .mysqli_error());
+			$this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME) or die ("Error: " .mysqli_connect_error());
 
-			mysqli_select_db($this->conn, DB_NAME);
+			//mysqli_select_db($this->conn, DB_NAME);
 		}
 
 		public function closeDatabase(){

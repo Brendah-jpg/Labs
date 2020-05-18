@@ -1,4 +1,4 @@
-<?php
+hp
 
 include_once 'DBConnector.php';
 include_once 'user.php';
@@ -18,17 +18,16 @@ if(isset ($_POST['btn-save'])){
 		echo "An error occurred!";
 	}
 }?>
-
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Home Page</title>
-</head>
+	<head>
+		<title>Home Page</title>
+	</head>
 <body>
-	<form method = "post">
-		<table align = "center">
+	<form method="post">
+		<table align="center">
 			<tr>
-				<td><input type = "text" name = "first_name" required placeholder = "First Name"/><td>
+				<td><input type = "text" name = "first_name" required placeholder = "First Name"/></td>
 			</tr>
 			<tr>
 				<td><input type = "text" name = "last_name" placeholder = "Last Name"/></td>

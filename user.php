@@ -1,5 +1,6 @@
 <?php
 	include "Crud.php";
+
 	class User implements Crud{
 		private $user_id;
 		private $first_name;
@@ -21,16 +22,29 @@
 		}
 
 		public function save(){
-			$conn= new mysqli(DB_SERVER, DB_USER, DB_PASS,DB_NAME);
+			
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$db = "ics3104";
+			
+			$conn = mysqli_connect($servername, $username, $password, $db);
+			
+			if(!$conn){
+				die("Connection failure");
+				}
 			$fn = $this->first_name;
 			$ln = $this->last_name;
 			$city = $this->city_name;
 
-			$res = "INSERT INTO user (first_name, last_name, city_name) VALUES ('$fn', '$ln', '$city')" or die("Error " .mysqli_error());
+			$res = "INSERT INTO user (first_name, last_name, city_name) VALUES ('$fn', '$ln', '$city')";
 
 			if(mysqli_query($conn, $res)){
 				return $res;
 				}
+			else{
+				echo "Error " . $res . "<br>" . mysqli_error($conn);
+			}
 		}
 
 		public function readAll(){

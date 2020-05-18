@@ -10,7 +10,7 @@
 		function __construct(){
 			$this->conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME) or die ("Error: " .mysqli_connect_error());
 
-			//mysqli_select_db($this->conn, DB_NAME);
+			//mysql_select_db(DB_NAME, $this->conn);
 		}
 
 		public function closeDatabase(){

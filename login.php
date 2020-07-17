@@ -6,19 +6,19 @@
 	if(isset($_POST['btn-login'])){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		//unsure if it works well
 		$instance = User::create();
 		$instance->setPassword($password);
 		$instance->setUsername($username);
 
 		if($instance->isPasswordCorrect()){
 			$instance->login();
-			$conn->closeDatabase();
 			$instance->createUserSession();
+			echo "Logged in ".$username.". <br>Welcome.";
 		}else{
-			$conn->closeDatabase();
+			echo "Unsuccessful.";
 			header("Location:login.php");
 		}
+		$conn->closeDatabase();
 	}
 ?>
 <html>

@@ -10,8 +10,11 @@
 		$city = $_POST['city_name'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
+		$fileToUpload = $_POST['fileToUpload'];
+		$utc_timestamp = $_POST['utc_timestamp'];
+		$offset = $_POST['time_zone_offset'];
 
-		$user = new User($first_name, $last_name, $city, $username, $password);
+		$user = new User($first_name, $last_name, $city, $username, $password,$fileToUpload);
 		$uploader = new FileUploader;
 
 		if(!$user->validateForm()){
@@ -19,16 +22,16 @@
 			header("Refresh: 0");
 			die();
 		}
-
-	
+		
 		$res = $user->save();
 		$file_upload_response = $uploader->uploadFile();
 
 	if($res && $file_upload_response){
 		echo "Save operation was successful";
 	} else{
-		echo "An error occurred!";
+		echo "<br> An error occurred!";
 	}
+	$conn->closeDatabase();
 }
 ?>
 
@@ -80,6 +83,9 @@
 			<tr>
 				<td><button type = "submit" name = "btn-save"><strong>SAVE</strong></button></td>
 			</tr>
+
+			<input type="hidden" name="utc_timestamp" id="utc_timestamp" value=""/>
+			<input type="hidden" name="time_zone_offset" id="time_zone_offset" value=""/>
 			<tr>
 				<td><a href = "login.php">Login</a></td>
 			</tr>
